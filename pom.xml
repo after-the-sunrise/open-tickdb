@@ -1,0 +1,168 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>jp.gr.java_conf.afterthesunrise</groupId>
+	<artifactId>open-tickdb</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>Open Tick Database</name>
+	<description>Open source implementation of tick database.</description>
+	<url>https://github.com/after-the-sunrise/${project.artifactId}</url>
+
+	<developers>
+		<developer>
+			<id>after-the-sunrise</id>
+			<name>Takanori Takase</name>
+			<timezone>+9</timezone>
+			<organization>individual</organization>
+			<organizationUrl>http://afterthesunrise.wordpress.com/</organizationUrl>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/after-the-sunrise/${project.artifactId}</url>
+		<connection>scm:git:git://github.com/after-the-sunrise/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:after-the-sunrise/${project.artifactId}.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/after-the-sunrise/${project.artifactId}/issues</url>
+	</issueManagement>
+
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>https://ats.ci.cloudbees.com/job/${project.artifactId}/</url>
+	</ciManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>ats-release</id>
+			<name>CloudBees ats-release</name>
+			<url>https://repository-ats.forge.cloudbees.com/release/</url>
+		</repository>
+		<snapshotRepository>
+			<id>ats-snapshot</id>
+			<name>CloudBees ats-snapshot</name>
+			<url>https://repository-ats.forge.cloudbees.com/snapshot/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<prerequisites>
+		<maven>3.0.4</maven>
+	</prerequisites>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<build.plugin.compiler.version>2.4</build.plugin.compiler.version>
+		<build.plugin.compiler.source>1.6</build.plugin.compiler.source>
+		<build.plugin.compiler.target>1.6</build.plugin.compiler.target>
+		<build.plugin.helper.version>1.7</build.plugin.helper.version>
+		<build.plugin.jar.version>2.4</build.plugin.jar.version>
+		<build.plugin.report.version>2.4</build.plugin.report.version>
+		<build.plugin.site.version>3.1</build.plugin.site.version>
+		<build.plugin.surefire.version>2.12</build.plugin.surefire.version>
+		<build.plugin.coberture.version>2.5.1</build.plugin.coberture.version>
+		<build.plugin.findbugs.version>2.4.0</build.plugin.findbugs.version>
+		<build.plugin.checkstyle.version>2.9.1</build.plugin.checkstyle.version>
+		<build.plugin.javadoc.version>2.8.1</build.plugin.javadoc.version>
+		<build.plugin.javancss.version>2.0</build.plugin.javancss.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${build.plugin.compiler.version}</version>
+				<configuration>
+					<source>${build.plugin.compiler.source}</source>
+					<target>${build.plugin.compiler.target}</target>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>${build.plugin.report.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>${build.plugin.site.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${build.plugin.surefire.version}</version>
+				<configuration>
+					<argLine>-XX:-UseSplitVerifier</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>${build.plugin.surefire.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>${build.plugin.coberture.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>${build.plugin.findbugs.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>${build.plugin.checkstyle.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${build.plugin.javadoc.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javancss-maven-plugin</artifactId>
+				<version>${build.plugin.javancss.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>${build.plugin.checkstyle.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${build.plugin.javadoc.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javancss-maven-plugin</artifactId>
+				<version>${build.plugin.javancss.version}</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+</project>
