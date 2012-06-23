@@ -110,6 +110,7 @@
 				<version>${build.plugin.surefire.version}</version>
 				<configuration>
 					<argLine>-XX:-UseSplitVerifier</argLine>
+					<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
 				</configuration>
 			</plugin>
 			<plugin>
