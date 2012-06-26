@@ -8,6 +8,8 @@ import java.io.IOException;
  */
 public interface LoadableTickIterator extends Closeable {
 
+	void initialize() throws IOException;
+
 	boolean hasNext() throws IOException;
 
 	LoadableTick getNext() throws IOException;

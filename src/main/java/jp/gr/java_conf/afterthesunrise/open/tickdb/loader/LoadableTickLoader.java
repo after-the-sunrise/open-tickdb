@@ -1,17 +1,18 @@
 package jp.gr.java_conf.afterthesunrise.open.tickdb.loader;
 
+import java.io.Closeable;
 import java.io.IOException;
 
 /**
  * @author takanori.takase
  */
-public interface LoadableTickLoader {
+public interface LoadableTickLoader extends Closeable {
 
-	boolean exists(String source) throws IOException;
+	void initialize() throws IOException;
 
-	long count(String source) throws IOException;
+	Long find(String source) throws IOException;
 
-	long delete(String source) throws IOException;
+	Long delete(String source) throws IOException;
 
 	long load(String source, LoadableTickIterator iterator) throws IOException;
 
