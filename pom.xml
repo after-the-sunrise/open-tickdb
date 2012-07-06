@@ -69,6 +69,7 @@
 		<build.plugin.compiler.version>2.4</build.plugin.compiler.version>
 		<build.plugin.compiler.source>1.6</build.plugin.compiler.source>
 		<build.plugin.compiler.target>1.6</build.plugin.compiler.target>
+		<build.plugin.sources.version>2.1.2</build.plugin.sources.version>
 		<build.plugin.helper.version>1.7</build.plugin.helper.version>
 		<build.plugin.jar.version>2.4</build.plugin.jar.version>
 		<build.plugin.report.version>2.4</build.plugin.report.version>
@@ -93,6 +94,19 @@
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${build.plugin.sources.version}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
