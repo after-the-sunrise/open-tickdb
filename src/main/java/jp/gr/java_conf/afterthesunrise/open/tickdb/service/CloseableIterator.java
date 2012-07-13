@@ -3,6 +3,9 @@ package jp.gr.java_conf.afterthesunrise.open.tickdb.service;
 import java.io.Closeable;
 import java.io.IOException;
 
+/**
+ * @author takanori.takase
+ */
 public interface CloseableIterator<T> extends Closeable {
 
 	T first() throws IOException;
