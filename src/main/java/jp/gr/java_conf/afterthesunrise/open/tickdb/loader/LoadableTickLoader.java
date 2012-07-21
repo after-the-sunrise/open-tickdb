@@ -2,6 +2,7 @@ package jp.gr.java_conf.afterthesunrise.open.tickdb.loader;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author takanori.takase
@@ -9,6 +10,8 @@ import java.io.IOException;
 public interface LoadableTickLoader extends Closeable {
 
 	void initialize() throws IOException;
+
+	List<String> list() throws IOException;
 
 	Long find(String source) throws IOException;
 
