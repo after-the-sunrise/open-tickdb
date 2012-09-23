@@ -80,8 +80,8 @@
 		<build.plugin.compiler.version>2.5.1</build.plugin.compiler.version>
 		<build.plugin.compiler.source>1.6</build.plugin.compiler.source>
 		<build.plugin.compiler.target>1.6</build.plugin.compiler.target>
-		<build.plugin.sources.version>2.1.2</build.plugin.sources.version>
-		<build.plugin.report.version>2.4</build.plugin.report.version>
+		<build.plugin.sources.version>2.2</build.plugin.sources.version>
+		<build.plugin.report.version>2.5</build.plugin.report.version>
 		<build.plugin.site.version>3.1</build.plugin.site.version>
 		<build.plugin.checkstyle.version>2.9.1</build.plugin.checkstyle.version>
 		<build.plugin.javadoc.version>2.8.1</build.plugin.javadoc.version>
