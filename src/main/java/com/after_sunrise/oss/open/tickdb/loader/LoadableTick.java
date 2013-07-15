@@ -1,9 +1,9 @@
-package jp.gr.java_conf.afterthesunrise.open.tickdb.loader;
+package com.after_sunrise.oss.open.tickdb.loader;
 
 import java.math.BigDecimal;
 import java.util.Map;
 
-import jp.gr.java_conf.afterthesunrise.open.tickdb.tick.Tick;
+import com.after_sunrise.oss.open.tickdb.tick.Tick;
 
 /**
  * @author takanori.takase

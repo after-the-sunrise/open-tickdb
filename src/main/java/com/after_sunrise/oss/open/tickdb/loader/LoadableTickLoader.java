@@ -1,4 +1,4 @@
-package jp.gr.java_conf.afterthesunrise.open.tickdb.loader;
+package com.after_sunrise.oss.open.tickdb.loader;
 
 import java.io.Closeable;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package jp.gr.java_conf.afterthesunrise.open.tickdb.tick;
+package com.after_sunrise.oss.open.tickdb.tick;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

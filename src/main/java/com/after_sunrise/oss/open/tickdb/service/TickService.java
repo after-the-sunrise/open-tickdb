@@ -1,11 +1,11 @@
-package jp.gr.java_conf.afterthesunrise.open.tickdb.service;
+package com.after_sunrise.oss.open.tickdb.service;
 
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
-import jp.gr.java_conf.afterthesunrise.open.tickdb.tick.Tick;
+import com.after_sunrise.oss.open.tickdb.tick.Tick;
 
 /**
  * @author takanori.takase
