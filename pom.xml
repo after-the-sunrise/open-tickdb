@@ -90,6 +90,7 @@
 		<build.plugin.checkstyle.version>2.9.1</build.plugin.checkstyle.version>
 		<build.plugin.javadoc.version>2.8.1</build.plugin.javadoc.version>
 		<build.plugin.javancss.version>2.0</build.plugin.javancss.version>
+		<build.plugin.aws.version>3.0.0.RELEASE</build.plugin.aws.version>
 	</properties>
 
 	<build>
@@ -149,6 +150,13 @@
 				<version>${build.plugin.javancss.version}</version>
 			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.springframework.build.aws</groupId>
+				<artifactId>org.springframework.build.aws.maven</artifactId>
+				<version>${build.plugin.aws.version}</version>
+			</extension>
+		</extensions>
 	</build>
 
 	<reporting>
