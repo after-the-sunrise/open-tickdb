@@ -52,7 +52,7 @@
 
 	<ciManagement>
 		<system>Jenkins</system>
-		<url>http://after-sunrise.com/job/${project.artifactId}/</url>
+		<url>http://after-sunrise.com/jenkins/job/${project.artifactId}/</url>
 	</ciManagement>
 
 	<distributionManagement>
@@ -84,6 +84,7 @@
 		<build.plugin.compiler.source>1.6</build.plugin.compiler.source>
 		<build.plugin.compiler.target>1.6</build.plugin.compiler.target>
 		<build.plugin.sources.version>2.2</build.plugin.sources.version>
+		<build.plugin.release.version>2.4.1</build.plugin.release.version>
 		<build.plugin.report.version>2.5</build.plugin.report.version>
 		<build.plugin.site.version>3.1</build.plugin.site.version>
 		<build.plugin.findbugs.version>2.5.2</build.plugin.findbugs.version>
@@ -118,6 +119,16 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${build.plugin.release.version}</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<pushChanges>false</pushChanges>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
