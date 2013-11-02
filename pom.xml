@@ -52,7 +52,7 @@
 
 	<ciManagement>
 		<system>Jenkins</system>
-		<url>http://after-sunrise.com/jenkins/job/${project.artifactId}/</url>
+		<url>https://ci.after-sunrise.com/jenkins/job/${project.artifactId}/</url>
 	</ciManagement>
 
 	<distributionManagement>
@@ -69,7 +69,7 @@
 		<site>
 			<id>s3.after-sunrise</id>
 			<name>S3 after-sunrise Site</name>
-			<url>s3://after-sunrise/site/</url>
+			<url>s3://after-sunrise/site/${project.groupId}/${project.artifactId}/${project.version}/</url>
 		</site>
 	</distributionManagement>
 
