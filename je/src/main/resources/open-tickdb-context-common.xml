@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+	">
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.after_sunrise.oss.otdb.je" />
+
+	<bean id="envrionment" class="com.sleepycat.je.Environment" scope="prototype">
+		<constructor-arg ref="tickDbBase" />
+		<constructor-arg ref="tickDbEnvrionmentConfig" />
+	</bean>
+
+	<bean id="tickDbBase" class="java.io.File">
+		<constructor-arg value="${open-tickdb.env.dir}" />
+	</bean>
+
+	<bean id="tickDbEnvrionmentConfig" class="com.sleepycat.je.EnvironmentConfig">
+		<constructor-arg type="java.util.Properties">
+			<map>
+				<entry value="${open-tickdb.env.thread.checkpointer}">
+					<key>
+						<util:constant
+							static-field="com.sleepycat.je.EnvironmentConfig.ENV_RUN_CHECKPOINTER" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.thread.compressor}">
+					<key>
+						<util:constant
+							static-field="com.sleepycat.je.EnvironmentConfig.ENV_RUN_IN_COMPRESSOR" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.thread.cleaner}">
+					<key>
+						<util:constant
+							static-field="com.sleepycat.je.EnvironmentConfig.ENV_RUN_CLEANER" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.thread.evictor}">
+					<key>
+						<util:constant
+							static-field="com.sleepycat.je.EnvironmentConfig.ENV_RUN_EVICTOR" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.dir.num}">
+					<key>
+						<util:constant
+							static-field="com.sleepycat.je.EnvironmentConfig.LOG_N_DATA_DIRECTORIES" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.log.size}">
+					<key>
+						<util:constant static-field="com.sleepycat.je.EnvironmentConfig.LOG_FILE_MAX" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.log.checksum.read}">
+					<key>
+						<util:constant
+							static-field="com.sleepycat.je.EnvironmentConfig.LOG_CHECKSUM_READ" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.log.utilization}">
+					<key>
+						<util:constant
+							static-field="com.sleepycat.je.EnvironmentConfig.CLEANER_MIN_UTILIZATION" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.memory.max.percent}">
+					<key>
+						<util:constant
+							static-field="com.sleepycat.je.EnvironmentConfig.MAX_MEMORY_PERCENT" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.mode.read}">
+					<key>
+						<util:constant static-field="com.sleepycat.je.EnvironmentConfig.ENV_READ_ONLY" />
+					</key>
+				</entry>
+				<entry value="${open-tickdb.env.mode.tx}">
+					<key>
+						<util:constant
+							static-field="com.sleepycat.je.EnvironmentConfig.ENV_IS_TRANSACTIONAL" />
+					</key>
+				</entry>
+			</map>
+		</constructor-arg>
+		<property name="allowCreate" value="${open-tickdb.env.create}" />
+		<property name="nodeName" value="${open-tickdb.env.name}" />
+	</bean>
+
+	<bean id="inverseSecondaryKeyCreator"
+		class="com.after_sunrise.oss.otdb.je.binding.InverseSecondaryKeyCreator">
+	</bean>
+
+	<bean id="tickSourceKeyCreator"
+		class="com.after_sunrise.oss.otdb.je.binding.TickSourceBinding">
+	</bean>
+
+	<bean id="diskOrderedCursorConfig" class="com.sleepycat.je.DiskOrderedCursorConfig">
+		<property name="keysOnly" value="true" />
+		<property name="internalMemoryLimit" value="1073741824" />
+		<property name="LSNBatchSize" value="33554432" />
+	</bean>
+
+	<bean id="sourceMainDbConfig" class="com.sleepycat.je.DatabaseConfig">
+		<property name="allowCreate" value="${open-tickdb.source.create.db}" />
+		<property name="deferredWrite" value="${open-tickdb.source.deferred}" />
+		<property name="keyPrefixing" value="${open-tickdb.source.prefix}" />
+		<property name="readOnly" value="${open-tickdb.source.read}" />
+		<property name="temporary" value="${open-tickdb.source.temp}" />
+		<property name="transactional" value="${open-tickdb.source.txn}" />
+	</bean>
+
+	<bean id="sourceSecDbConfig" class="com.sleepycat.je.SecondaryConfig">
+		<property name="allowCreate" value="${open-tickdb.source.create.db}" />
+		<property name="deferredWrite" value="${open-tickdb.source.deferred}" />
+		<property name="keyPrefixing" value="${open-tickdb.source.prefix}" />
+		<property name="readOnly" value="${open-tickdb.source.read}" />
+		<property name="temporary" value="${open-tickdb.source.temp}" />
+		<property name="transactional" value="${open-tickdb.source.txn}" />
+		<property name="keyCreator" ref="tickSourceKeyCreator" />
+	</bean>
+
+	<bean id="sourceSeqDbConfig" class="com.sleepycat.je.DatabaseConfig">
+		<property name="allowCreate" value="${open-tickdb.source.create.db}" />
+		<property name="deferredWrite" value="${open-tickdb.source.deferred}" />
+		<property name="keyPrefixing" value="${open-tickdb.source.prefix}" />
+		<property name="readOnly" value="${open-tickdb.source.read}" />
+		<property name="temporary" value="${open-tickdb.source.temp}" />
+		<property name="transactional" value="${open-tickdb.source.txn}" />
+	</bean>
+
+	<bean id="sourceSequenceConfig" class="com.sleepycat.je.SequenceConfig">
+		<property name="allowCreate" value="${open-tickdb.source.create.seq}" />
+	</bean>
+
+	<bean id="codeMainDbConfig" class="com.sleepycat.je.DatabaseConfig">
+		<property name="allowCreate" value="${open-tickdb.code.create.db}" />
+		<property name="deferredWrite" value="${open-tickdb.code.deferred}" />
+		<property name="keyPrefixing" value="${open-tickdb.code.prefix}" />
+		<property name="readOnly" value="${open-tickdb.code.read}" />
+		<property name="temporary" value="${open-tickdb.code.temp}" />
+		<property name="transactional" value="${open-tickdb.code.txn}" />
+	</bean>
+
+	<bean id="codeSecDbConfig" class="com.sleepycat.je.SecondaryConfig">
+		<property name="allowCreate" value="${open-tickdb.code.create.db}" />
+		<property name="deferredWrite" value="${open-tickdb.code.deferred}" />
+		<property name="keyPrefixing" value="${open-tickdb.code.prefix}" />
+		<property name="readOnly" value="${open-tickdb.code.read}" />
+		<property name="temporary" value="${open-tickdb.code.temp}" />
+		<property name="transactional" value="${open-tickdb.code.txn}" />
+		<property name="keyCreator" ref="inverseSecondaryKeyCreator" />
+	</bean>
+
+	<bean id="codeSeqDbConfig" class="com.sleepycat.je.DatabaseConfig">
+		<property name="allowCreate" value="${open-tickdb.code.create.db}" />
+		<property name="deferredWrite" value="${open-tickdb.code.deferred}" />
+		<property name="keyPrefixing" value="${open-tickdb.code.prefix}" />
+		<property name="readOnly" value="${open-tickdb.code.read}" />
+		<property name="temporary" value="${open-tickdb.code.temp}" />
+		<property name="transactional" value="${open-tickdb.code.txn}" />
+	</bean>
+
+	<bean id="codeSequenceConfig" class="com.sleepycat.je.SequenceConfig">
+		<property name="allowCreate" value="${open-tickdb.code.create.seq}" />
+	</bean>
+
+	<bean id="tickMainDbConfig" class="com.sleepycat.je.DatabaseConfig">
+		<property name="allowCreate" value="${open-tickdb.tick.create.db}" />
+		<property name="deferredWrite" value="${open-tickdb.tick.deferred}" />
+		<property name="keyPrefixing" value="${open-tickdb.tick.prefix}" />
+		<property name="readOnly" value="${open-tickdb.tick.read}" />
+		<property name="temporary" value="${open-tickdb.tick.temp}" />
+		<property name="transactional" value="${open-tickdb.tick.txn}" />
+	</bean>
+
+	<bean id="tickSeqDbConfig" class="com.sleepycat.je.DatabaseConfig">
+		<property name="allowCreate" value="${open-tickdb.tick.create.db}" />
+		<property name="deferredWrite" value="${open-tickdb.tick.deferred}" />
+		<property name="keyPrefixing" value="${open-tickdb.tick.prefix}" />
+		<property name="readOnly" value="${open-tickdb.tick.read}" />
+		<property name="temporary" value="${open-tickdb.tick.temp}" />
+		<property name="transactional" value="${open-tickdb.tick.txn}" />
+	</bean>
+
+	<bean id="tickSequenceConfig" class="com.sleepycat.je.SequenceConfig">
+		<property name="allowCreate" value="${open-tickdb.tick.create.seq}" />
+	</bean>
+
+</beans>
