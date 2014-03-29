@@ -65,17 +65,17 @@
 		<repository>
 			<id>s3.after-sunrise</id>
 			<name>S3 after-sunrise Release</name>
-			<url>s3://after-sunrise/release/</url>
+			<url>s3://after-sunrise/maven/release/</url>
 		</repository>
 		<snapshotRepository>
 			<id>s3.after-sunrise</id>
 			<name>S3 after-sunrise Snapshot</name>
-			<url>s3://after-sunrise/snapshot/</url>
+			<url>s3://after-sunrise/maven/snapshot/</url>
 		</snapshotRepository>
 		<site>
 			<id>s3.after-sunrise</id>
 			<name>S3 after-sunrise Site</name>
-			<url>s3://after-sunrise/site/${project.groupId}/${project.artifactId}/${project.version}/</url>
+			<url>s3://after-sunrise/maven/site/${project.groupId}/${project.artifactId}/${project.version}/</url>
 		</site>
 	</distributionManagement>
 
