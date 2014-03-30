@@ -58,7 +58,7 @@
 
 	<ciManagement>
 		<system>Jenkins</system>
-		<url>https://ci.after-sunrise.com/jenkins/job/${project.artifactId}/</url>
+		<url>https://ci.after-sunrise.com/jenkins/</url>
 	</ciManagement>
 
 	<distributionManagement>
