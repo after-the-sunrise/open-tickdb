@@ -92,7 +92,7 @@
 		<repository>
 			<id>rp.after-sunrise_release</id>
 			<name>after-sunrise Release</name>
-			<url>https://rp.after-sunrise.com/maven/release</url>
+			<url>http://rp.after-sunrise.com/maven/release</url>
 		</repository>
 	</repositories>
 
