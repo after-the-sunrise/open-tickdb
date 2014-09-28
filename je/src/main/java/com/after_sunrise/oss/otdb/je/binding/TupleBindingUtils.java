@@ -27,16 +27,18 @@ import com.sleepycat.bind.tuple.TupleOutput;
  * <p>
  * In this implementation, the first byte of the data defines how the following
  * data are written and should be read.
+ * </p>
  * <ul>
  * <li>If the first byte is equal to -128 (b == -128), {@link TupleOutput}'s
  * default implementation is used.</li>
- * <li>If the first byte is greater than -8 and no greater than 128 (-8 < b <=
+ * <li>If the first byte is greater than -8 and no greater than 128 (-8 &lt; b &lt;=
  * 128), the first byte itself represents the whole data.</li>
  * <li>Otherwise, the first byte indicates a combination of the scale and
  * unscaled value's byte length. Bytes following the first bytes represent the
  * unscaled value.</li>
  * </ul>
- * <table title="First Byte Combination" border="1">
+ * <table border="1">
+ * <caption>First Byte Combination</caption>
  * <tr>
  * <th>Fist byte</th>
  * <th>Scale</th>
@@ -92,7 +94,6 @@ import com.sleepycat.bind.tuple.TupleOutput;
  * <td>92233.72036854775807</td>
  * </tr>
  * </table>
- * </p>
  * 
  * @author takanori.takase
  */

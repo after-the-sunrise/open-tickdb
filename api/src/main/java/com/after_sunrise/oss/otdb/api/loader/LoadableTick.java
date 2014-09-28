@@ -24,13 +24,13 @@ public interface LoadableTick {
 
 	/**
 	 * @return Property map
-	 * @see Tick#getDecimalValues()
+	 * @see Tick#getDecimals()
 	 */
 	Map<Integer, BigDecimal> getDecimals();
 
 	/**
 	 * @return Property map
-	 * @see Tick#getStringValues()
+	 * @see Tick#getStrings()
 	 */
 	Map<Integer, String> getStrings();
 

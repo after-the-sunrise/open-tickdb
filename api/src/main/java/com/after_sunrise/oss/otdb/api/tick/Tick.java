@@ -32,8 +32,8 @@ public interface Tick extends Comparable<Tick>, Serializable {
 	 * maximum time limitation. (Unsigned long may be useful too.)
 	 * </p>
 	 * 
-	 * <p>
 	 * <table border="1">
+	 * <caption>Usage Examples</caption>
 	 * <tr>
 	 * <th>Type</th>
 	 * <th>Value</th>
@@ -55,7 +55,6 @@ public interface Tick extends Comparable<Tick>, Serializable {
 	 * <tD>13</td>
 	 * </tr>
 	 * </table>
-	 * </p>
 	 */
 	long getTimestamp();
 
