@@ -70,7 +70,7 @@
 		<repository>
 			<id>after-sunrise_release</id>
 			<name>after-sunrise Release</name>
-			<url>http://rp.after-sunrise.com/ats-repository/maven/release</url>
+			<url>http://rp.after-sunrise.com/maven/release</url>
 		</repository>
 	</repositories>
 
