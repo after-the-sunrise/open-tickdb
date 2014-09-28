@@ -68,9 +68,9 @@
 			<url>http://download.oracle.com/maven/</url>
 		</repository>
 		<repository>
-			<id>rp.after-sunrise_release</id>
+			<id>after-sunrise_release</id>
 			<name>after-sunrise Release</name>
-			<url>http://rp.after-sunrise.com/maven/release</url>
+			<url>http://rp.after-sunrise.com/ats-repository/maven/release</url>
 		</repository>
 	</repositories>
 
