@@ -29,7 +29,7 @@ import com.after_sunrise.oss.otdb.je.entity.TickKey;
 import com.after_sunrise.oss.otdb.je.entity.TickSource;
 import com.after_sunrise.oss.otdb.je.entity.TickValue;
 import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 import com.sleepycat.je.Environment;
 import com.sleepycat.je.Transaction;
 
@@ -149,7 +149,7 @@ public class JeTickLoaderDelegate implements LoadableTickLoader {
 			return null;
 		}
 
-		return Objects.firstNonNull(tickSource.getCount(), Long.valueOf(0L));
+		return MoreObjects.firstNonNull(tickSource.getCount(), Long.valueOf(0L));
 
 	}
 

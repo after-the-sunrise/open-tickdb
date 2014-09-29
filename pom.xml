@@ -80,32 +80,32 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.showWarnings>true</maven.compiler.showWarnings>
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
-		<build.plugin.sources.version>2.2.1</build.plugin.sources.version>
-		<build.plugin.release.version>2.4.1</build.plugin.release.version>
-		<build.plugin.report.version>2.6</build.plugin.report.version>
-		<build.plugin.surefire.version>2.12.4</build.plugin.surefire.version>
-		<build.plugin.cobertura.version>2.5.2</build.plugin.cobertura.version>
+		<build.plugin.sources.version>2.3</build.plugin.sources.version>
+		<build.plugin.release.version>2.5.1</build.plugin.release.version>
+		<build.plugin.report.version>2.7</build.plugin.report.version>
+		<build.plugin.surefire.version>2.17</build.plugin.surefire.version>
+		<build.plugin.cobertura.version>2.6</build.plugin.cobertura.version>
 		<build.plugin.findbugs.version>3.0.0</build.plugin.findbugs.version>
-		<build.plugin.checkstyle.version>2.9.1</build.plugin.checkstyle.version>
-		<build.plugin.javadoc.version>2.9</build.plugin.javadoc.version>
-		<build.plugin.jxr.version>2.2</build.plugin.jxr.version>
+		<build.plugin.checkstyle.version>2.13</build.plugin.checkstyle.version>
+		<build.plugin.javadoc.version>2.9.1</build.plugin.javadoc.version>
+		<build.plugin.jxr.version>2.4</build.plugin.jxr.version>
 
 		<dependency.junit.version>4.11</dependency.junit.version>
 		<dependency.mockito.version>1.9.5</dependency.mockito.version>
 
-		<dependency.ats.commons.version>0.2.8</dependency.ats.commons.version>
-		<dependency.aws.version>1.7.4</dependency.aws.version>
+		<dependency.ats.commons.version>0.2.9</dependency.ats.commons.version>
+		<dependency.aws.version>1.8.10.2</dependency.aws.version>
 		<dependency.commons-collection.version>3.2.1</dependency.commons-collection.version>
 		<dependency.commons.io.version>2.4</dependency.commons.io.version>
 		<dependency.commons-lang.version>2.6</dependency.commons-lang.version>
 		<dependency.commons-log.version>1.1.3</dependency.commons-log.version>
 		<dependency.commons.net.version>3.3</dependency.commons.net.version>
-		<dependency.guava.version>16.0.1</dependency.guava.version>
-		<dependency.je.version>5.0.103</dependency.je.version>
+		<dependency.guava.version>18.0</dependency.guava.version>
+		<dependency.je.version>5.0.104</dependency.je.version>
 		<dependency.junit.version>4.11</dependency.junit.version>
 		<dependency.log4j.version>1.2.17</dependency.log4j.version>
 		<dependency.mockito.version>1.9.5</dependency.mockito.version>
-		<dependency.spring.version>4.0.2.RELEASE</dependency.spring.version>
+		<dependency.spring.version>4.1.0.RELEASE</dependency.spring.version>
 	</properties>
 
 	<build>

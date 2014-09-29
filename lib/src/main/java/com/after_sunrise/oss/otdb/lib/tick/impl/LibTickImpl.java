@@ -22,7 +22,7 @@ import com.after_sunrise.oss.otdb.lib.tick.LibTick;
 import com.after_sunrise.oss.otdb.lib.tick.LibTickTradeType;
 import com.after_sunrise.oss.otdb.lib.tick.LibTickType;
 import com.after_sunrise.oss.otdb.lib.tick.LibTickValueType;
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 
 /**
  * @author takanori.takase
@@ -50,7 +50,7 @@ public class LibTickImpl implements LibTick {
 
 	@Override
 	public String toString() {
-		return Objects.toStringHelper(this).add("tick", tick).toString();
+		return MoreObjects.toStringHelper(this).add("tick", tick).toString();
 	}
 
 	private BigDecimal get(LibTickValueType type) {

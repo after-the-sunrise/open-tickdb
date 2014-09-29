@@ -1,6 +1,6 @@
 package com.after_sunrise.oss.otdb.lib.load.impl.source;
 
-import static com.google.common.base.Objects.firstNonNull;
+import static com.google.common.base.MoreObjects.firstNonNull;
 import static org.apache.commons.lang.ArrayUtils.EMPTY_STRING_ARRAY;
 import static org.apache.commons.net.ftp.FTP.BINARY_FILE_TYPE;
 
